@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.4;
 
-contract Counter {
+/// @notice The owner of the contract can get a capped number of decryption credits per day
+contract AuthorityDailyRateLimit {
     uint256 public number;
 
     function setNumber(uint256 newNumber) public {
