@@ -4,7 +4,8 @@ Contracts that determine how many Mishti decryption credits an address has.
 
 | Contract Name | Network | Address | Owner |
 | --- | --- | --- | --- |
-| MishtiDecryptionCredits | Holesky | 0x5c0BD67f439fCd9D48D7033670e0eE1aF52F45c0 | 0xb18399Ce7899278C1E2dcDe1dbd00FBAb0C970DF |
+| AuthorityWithDailyRateLimitV2 | Holesky | 0xE6BaB4228Ad23D59A1F1D69f1Cb14C2Ba29D91e9 | 0xb18399Ce7899278C1E2dcDe1dbd00FBAb0C970DF |
+| MishtiDecryptionCredits (DEPRECATED) | Holesky | 0x5c0BD67f439fCd9D48D7033670e0eE1aF52F45c0 | 0xb18399Ce7899278C1E2dcDe1dbd00FBAb0C970DF |
 
 <hr/>
 
