@@ -3,7 +3,7 @@ pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
 import {Ownable} from "openzeppelin-contracts/contracts/access/Ownable.sol";
-import {AuthorityWithDailyRateLimit} from "../src/AuthorityWithDailyRateLimit.sol";
+import {AuthorityWithDailyRateLimit} from "../src/decryption/AuthorityWithDailyRateLimit.sol";
 
 contract AuthorityWithDailyRateLimitTest is Test {
     AuthorityWithDailyRateLimit public creditsContract;
