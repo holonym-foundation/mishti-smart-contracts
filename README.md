@@ -66,8 +66,16 @@ $ anvil
 
 ### Deploy
 
+With `script`...
+
 ```shell
 $ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```
+
+With `create`...
+
+```shell
+$ forge create --rpc-url <your_rpc_url> --private-key <your_private_key> src/PeerRegistry.sol:PeerRegistry
 ```
 
 ### Cast
