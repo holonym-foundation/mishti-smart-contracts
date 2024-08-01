@@ -5,6 +5,7 @@ Public smart contracts used by Mishti.
 | Contract Name | Network | Address | Owner |
 | --- | --- | --- | --- |
 | PeerRegistry | Holesky | 0x8E12AbF829493206e8188E68fc56a56cAA67aeD6 | n/a |
+| AddressAccessManager | Holesky | 0x3182E2BE7D8155E9AcDB599e39Fc3D48A400C094 | 0xb18399Ce7899278C1E2dcDe1dbd00FBAb0C970DF |
 
 ## Mishti Decryption Contracts
 
