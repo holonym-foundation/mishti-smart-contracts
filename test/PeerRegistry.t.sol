@@ -16,6 +16,8 @@ contract PeerRegistryTest is Test {
     function test_integration() public {
         string memory peerID = "peerID";
         string memory multiaddr = "multiaddr";
+        string memory libp2pPubkey = "libp2pPubkey";
+        string memory rsaPubkey = "rsaPubkey";
 
         // Assert initially empty
         assertEq(peerRegistry.getPeers().length, 0);
@@ -24,8 +26,8 @@ contract PeerRegistryTest is Test {
         // Register peer
         vm.prank(dummyAddr);
         vm.expectEmit();
-        emit PeerRegistry.RegisterPeer(dummyAddr, peerID, multiaddr);
-        peerRegistry.register(peerID, multiaddr);
+        emit PeerRegistry.RegisterPeer(dummyAddr, peerID, multiaddr, libp2pPubkey, rsaPubkey);
+        peerRegistry.register(peerID, multiaddr, libp2pPubkey, rsaPubkey);
 
         // Assert register successful
         PeerRegistry.Peer[] memory peers = peerRegistry.getPeers();
@@ -34,17 +36,21 @@ contract PeerRegistryTest is Test {
         assertEq(peers[0].addr, dummyAddr);
         assertEq(peers[0].peerID, peerID);
         assertEq(peers[0].multiaddr, multiaddr);
+        assertEq(peers[0].libp2pPubkey, libp2pPubkey);
+        assertEq(peers[0].rsaPubkey, rsaPubkey);
 
         // Try to register again
         vm.prank(dummyAddr);
         vm.expectRevert(PeerRegistry.PeerAlreadyExists.selector);
-        peerRegistry.register(peerID, multiaddr);
+        peerRegistry.register(peerID, multiaddr, libp2pPubkey, rsaPubkey);
 
         // Update peer
         peerID = "peerID2";
         multiaddr = "multiaddr2";
+        libp2pPubkey = "libp2pPubkey2";
+        rsaPubkey = "rsaPubkey2";
         vm.prank(dummyAddr);
-        peerRegistry.updatePeer(peerID, multiaddr);
+        peerRegistry.updatePeer(peerID, multiaddr, libp2pPubkey, rsaPubkey);
 
         // Assert update successful
         peers = peerRegistry.getPeers();
@@ -53,6 +59,8 @@ contract PeerRegistryTest is Test {
         assertEq(peers[0].addr, dummyAddr);
         assertEq(peers[0].peerID, peerID);
         assertEq(peers[0].multiaddr, multiaddr);
+        assertEq(peers[0].libp2pPubkey, libp2pPubkey);
+        assertEq(peers[0].rsaPubkey, rsaPubkey);
 
         // Remove peer
         vm.prank(dummyAddr);
