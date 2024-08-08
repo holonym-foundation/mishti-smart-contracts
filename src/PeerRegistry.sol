@@ -8,6 +8,7 @@ contract PeerRegistry {
         address addr;
         string peerID;
         string multiaddr;
+        string rpcaddr;
         string libp2pPubkey;
         string rsaPubkey;
     }
@@ -21,6 +22,7 @@ contract PeerRegistry {
         address indexed addr, 
         string peerID, 
         string multiaddr,
+        string rpcaddr,
         string libp2pPubkey,
         string rsaPubkey
     );
@@ -29,6 +31,7 @@ contract PeerRegistry {
         address addr, 
         string peerID, 
         string multiaddr,
+        string rpcaddr,
         string libp2pPubkey,
         string rsaPubkey
     );
@@ -47,6 +50,7 @@ contract PeerRegistry {
     function register(
         string calldata peerID, 
         string calldata multiaddr,
+        string calldata rpcaddr,
         string calldata libp2pPubkey,
         string calldata rsaPubkey
     ) external {        
@@ -62,18 +66,20 @@ contract PeerRegistry {
             addr: msg.sender,
             peerID: peerID,
             multiaddr: multiaddr,
+            rpcaddr:rpcaddr,
             libp2pPubkey: libp2pPubkey,
             rsaPubkey: rsaPubkey
         });
         peers.push(peer);
         addrToIndex[msg.sender] = peers.length;
 
-        emit RegisterPeer(msg.sender, peerID, multiaddr, libp2pPubkey, rsaPubkey);
+        emit RegisterPeer(msg.sender, peerID, multiaddr,rpcaddr, libp2pPubkey, rsaPubkey);
     }
 
     function updatePeer(
         string calldata peerID, 
         string calldata multiaddr,
+        string calldata rpcaddr,
         string calldata libp2pPubkey,
         string calldata rsaPubkey
     ) external {
@@ -84,9 +90,10 @@ contract PeerRegistry {
 
         peers[index - 1].peerID = peerID;
         peers[index - 1].multiaddr = multiaddr;
+        peers[index - 1].rpcaddr = rpcaddr;
         peers[index - 1].libp2pPubkey = libp2pPubkey;
         peers[index - 1].rsaPubkey = rsaPubkey;
-        emit UpdatePeer(msg.sender, peerID, multiaddr, libp2pPubkey, rsaPubkey);
+        emit UpdatePeer(msg.sender, peerID, multiaddr,rpcaddr, libp2pPubkey, rsaPubkey);
     }
 
     function removePeer() public {
@@ -107,3 +114,4 @@ contract PeerRegistry {
         return peers;
     }
 }
+

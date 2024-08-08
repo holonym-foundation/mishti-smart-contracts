@@ -16,6 +16,7 @@ contract PeerRegistryTest is Test {
     function test_integration() public {
         string memory peerID = "peerID";
         string memory multiaddr = "multiaddr";
+        string memory rpcaddr = "rpcaddr";
         string memory libp2pPubkey = "libp2pPubkey";
         string memory rsaPubkey = "rsaPubkey";
 
@@ -26,8 +27,8 @@ contract PeerRegistryTest is Test {
         // Register peer
         vm.prank(dummyAddr);
         vm.expectEmit();
-        emit PeerRegistry.RegisterPeer(dummyAddr, peerID, multiaddr, libp2pPubkey, rsaPubkey);
-        peerRegistry.register(peerID, multiaddr, libp2pPubkey, rsaPubkey);
+        emit PeerRegistry.RegisterPeer(dummyAddr, peerID, multiaddr, rpcaddr ,libp2pPubkey, rsaPubkey);
+        peerRegistry.register(peerID, multiaddr, rpcaddr,libp2pPubkey, rsaPubkey);
 
         // Assert register successful
         PeerRegistry.Peer[] memory peers = peerRegistry.getPeers();
@@ -36,21 +37,23 @@ contract PeerRegistryTest is Test {
         assertEq(peers[0].addr, dummyAddr);
         assertEq(peers[0].peerID, peerID);
         assertEq(peers[0].multiaddr, multiaddr);
+        assertEq(peers[0].rpcaddr, rpcaddr);
         assertEq(peers[0].libp2pPubkey, libp2pPubkey);
         assertEq(peers[0].rsaPubkey, rsaPubkey);
 
         // Try to register again
         vm.prank(dummyAddr);
         vm.expectRevert(PeerRegistry.PeerAlreadyExists.selector);
-        peerRegistry.register(peerID, multiaddr, libp2pPubkey, rsaPubkey);
+        peerRegistry.register(peerID, multiaddr,rpcaddr, libp2pPubkey, rsaPubkey);
 
         // Update peer
         peerID = "peerID2";
         multiaddr = "multiaddr2";
+        multiaddr = "rpcaddr2";
         libp2pPubkey = "libp2pPubkey2";
         rsaPubkey = "rsaPubkey2";
         vm.prank(dummyAddr);
-        peerRegistry.updatePeer(peerID, multiaddr, libp2pPubkey, rsaPubkey);
+        peerRegistry.updatePeer(peerID, multiaddr,rpcaddr, libp2pPubkey, rsaPubkey);
 
         // Assert update successful
         peers = peerRegistry.getPeers();
@@ -59,6 +62,7 @@ contract PeerRegistryTest is Test {
         assertEq(peers[0].addr, dummyAddr);
         assertEq(peers[0].peerID, peerID);
         assertEq(peers[0].multiaddr, multiaddr);
+        assertEq(peers[0].multiaddr, rpcaddr);
         assertEq(peers[0].libp2pPubkey, libp2pPubkey);
         assertEq(peers[0].rsaPubkey, rsaPubkey);
 
@@ -126,3 +130,4 @@ contract PeerRegistryTest is Test {
     //     assert(!canDecrypt);
     // }
 }
+
