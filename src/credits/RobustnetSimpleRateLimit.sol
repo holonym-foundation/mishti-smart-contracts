@@ -2,7 +2,7 @@
 pragma solidity ^0.8.4;
 
 // This contract is a simple rate limiter that allows the owner to request credits, but only a certain amount per day
-contract SecureNetSimpleRateLimit {
+contract RobustNetSimpleRateLimit {
     address public whitelisted;
     mapping(address => uint256) credits;
     uint256 nextTimeAllowedToIncreaseCredits;
