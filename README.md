@@ -2,6 +2,13 @@
 
 Public smart contracts used by Mishti.
 
+### How to deploy with a hardware wallet
+```bash
+forge script script/DeployMainnetAlphaRateLimit.s.sol:DeployMainnetAlphaRateLimit --broadcast --verify --rpc-url https://eth.llamarpc.com --etherscan-api-key I1Z396K67WH81P7J7FSAK6AF6WI8WPTQPD 
+--hd-paths "m/44'/60'/2'/0/0" 
+--ledger
+```
+
 | Contract Name | Network | Address | Owner |
 | --- | --- | --- | --- |
 | PeerRegistry | Holesky | 0x21f45eaB7f181ADe9985b4ce99D612cA84E6acB8 | n/a |

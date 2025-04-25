@@ -27,6 +27,8 @@ contract MainnetAlphaRateLimit {
         _;
     }
 
+    // Usage: `cast send 0x18494fecf61d2282c45b8bf481403c1fcb5d94e6 "addToWhitelist(address)" <ADDRESS TO WHITELIST> --rpc-url https://eth.llamarpc.com --hd-path "m/44'/60'/2'/0/0" --ledger`
+    // for exampl `cast send 0x18494fecf61d2282c45b8bf481403c1fcb5d94e6 "addToWhitelist(address)" 0xdD4E810D50f07fB77d4c6A9CCe0399e75bfcd972 --rpc-url https://eth.llamarpc.com --hd-path "m/44'/60'/2'/0/0" --ledger`
     function addToWhitelist(address user) external onlyOwner {
         require(!whitelisted[user], "Address already whitelisted");
         require(numWhitelisted < maxWhitelist, "Maximum whitelist capacity reached");
