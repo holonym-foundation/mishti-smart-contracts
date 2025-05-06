@@ -12,6 +12,7 @@ forge script script/DeployMainnetAlphaRateLimit.s.sol:DeployMainnetAlphaRateLimi
 | Contract Name | Network | Address | Owner |
 | --- | --- | --- | --- |
 | PeerRegistry | Holesky | 0x21f45eaB7f181ADe9985b4ce99D612cA84E6acB8 | n/a |
+| PeerRegistry | Sepolia | 0xA5A375Aa83bc7013c7646FE5AF080d1a09563959 | n/a |
 | PeerRegistry | Mainnet | 0x29213F949871982647adC56786fe066e7e5Aeeea | n/a |
 | AddressAccessManager | Holesky | 0x3182E2BE7D8155E9AcDB599e39Fc3D48A400C094 | 0xb18399Ce7899278C1E2dcDe1dbd00FBAb0C970DF |
 
