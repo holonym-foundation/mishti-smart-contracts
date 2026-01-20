@@ -3,8 +3,8 @@
 // Run with `forge script script/SetVaultOptIn.s.sol:SetSupportedStakingContracts --broadcast --verify --rpc-url https://eth.llamarpc.com --etherscan-api-key I1Z396K67WH81P7J7FSAK6AF6WI8WPTQPD --evm-version cancun --hd-paths "m/44'/60'/2'/0/0" --ledger`
 pragma solidity >=0.8.20;
 
-import {Script, StdChains} from "forge-std/src/Script.sol";
-import "forge-std/src/console.sol";
+import {Script, StdChains} from "forge-std/Script.sol";
+import "forge-std/console.sol";
 
 contract SetSupportedStakingContracts is Script {
     address public multisigAddress = address(0); // For testing purposes
