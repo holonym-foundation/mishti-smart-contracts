@@ -23,6 +23,7 @@ Contracts that determine how many Mishti decryption credits an address has.
 | Contract Name | Network | Address | Owner |
 | --- | --- | --- | --- |
 | AuthorityWithDailyRateLimitV2 | Holesky | 0xE6BaB4228Ad23D59A1F1D69f1Cb14C2Ba29D91e9 | 0xb18399Ce7899278C1E2dcDe1dbd00FBAb0C970DF |
+| AuthorityWithDailyRateLimitV2 | Ethereum Mainnet | 0x3a0d4A524Aa53A29959Aaef1Cff899F35Cc7F766 | 0xcaFe2eF59688187EE312C8aca10CEB798338f7e3 |
 | MishtiDecryptionCredits (DEPRECATED) | Holesky | 0x5c0BD67f439fCd9D48D7033670e0eE1aF52F45c0 | 0xb18399Ce7899278C1E2dcDe1dbd00FBAb0C970DF |
 
 <hr/>
